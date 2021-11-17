@@ -27,7 +27,7 @@ dict = file_json["texts"]
 
 #######
 ####### REALIZAR STEMMING
-#######
+####### https://stackoverflow.com/questions/24647400/what-is-the-best-stemming-method-in-python
 
 
 #gerando bag of words

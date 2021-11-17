@@ -24,7 +24,7 @@ df_testes = ["df_text_full","df_text_representante"]
 for arquivo in jsons:
     for df_a_ser_testado in df_testes:
 
-        caminho = "C:/Users/thico/Machine Learning/PLIN/dfs_pedrao/"+arquivo
+        caminho = "C:/Users/thico/Machine Learning/PLIN/projeto_plin_ufabc/dfs_pedrao/"+arquivo
 
         file = open(caminho,encoding='utf-8')
         file_json = json.load(file)
@@ -93,4 +93,4 @@ for arquivo in jsons:
         plt.xlabel('Palavra')
         plt.xticks(rotation=90)
         plt.title(titulo)
-        plt.savefig("C:/Users/thico/Machine Learning/PLIN/registros_feature_importances/barplots/"+titulo+(".png"))
+        plt.savefig("C:/Users/thico/Machine Learning/PLIN/projeto_plin_ufabc/registros_feature_importances/barplots/"+titulo+(".png"))
