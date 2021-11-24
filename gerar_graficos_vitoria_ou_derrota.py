@@ -80,7 +80,6 @@ for resultado_desejado in resultados_possiveis:
                     for i in range(len(df)):
                         array_register[word_list.index(df.iloc[i]["Type"])] = df.iloc[i]["Frequência(f)"]
                     array_all_frequencies.append(array_register)
-
             # df = pd.DataFrame(data=array_all_frequencies,columns=word_list)
 
             # print(df.head())
@@ -97,7 +96,7 @@ for resultado_desejado in resultados_possiveis:
             df = df.head(50)
 
             titulo = resultado_desejado+ " - "+df_a_ser_testado+" - "+arquivo.split(".")[0]
-            print("Titulo:",titulo)
+            #print("Titulo:",titulo)
             x_pos = np.arange(len(freq))
             f=plt.figure()
             f.set_figwidth(20)
@@ -111,5 +110,6 @@ for resultado_desejado in resultados_possiveis:
             plt.ylabel('Frequência')
             plt.xlabel('Palavra')
             plt.xticks(rotation=90)
-            plt.title(titulo)
+            #plt.title(titulo)
             plt.savefig("C:/Users/thico/Machine Learning/PLIN/projeto_plin_ufabc/registros_feature_importances/barplot_vitoriasouderrotas/"+titulo+(".png"))
+            print(titulo,"types:",len(word_list),"tokens:",sum(freq),"dLexical:",len(word_list)/sum(freq))

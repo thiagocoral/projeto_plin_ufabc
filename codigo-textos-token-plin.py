@@ -10,6 +10,8 @@ import pandas as pd
 import json
 import os
 import numpy as np
+from nltk.stem import WordNetLemmatizer
+
 
 def extract_df(url):
 
@@ -29,9 +31,16 @@ def extract_df(url):
     def tokenizar_texto(string_tonekiner):
         tokens=word_tokenize(string_tonekiner) 
 
-        tokens_without_sw = [word for word in tokens if not word.lower() in stopwords.words()]
+        tokens_without_sw = [word for word in tokens if not word.lower() in stopwords.words("portuguese")]
+
         tokens_palavras=[w for w in tokens_without_sw if w.isalpha()]
+
+        # lemmatizer = WordNetLemmatizer()
+        # newwords = [lemmatizer.lemmatize(word) for word in tokens_palavras]
+
         fdist=nltk.FreqDist(string_tonekiner)
+
+
         fdist_sort=fdist.most_common(50)
 
         ######### LEI DE ZIPF ##########
@@ -68,7 +77,7 @@ def extract_all_urls():
         for line in lines:
             line,target = line.split(",")
             df_text_full,df_text_representante = extract_df(line[0:len(line)])
-            print(df_text_full,df_text_representante)
+            #print(df_text_full,df_text_representante)
 
             ### Verifica se o arquivo existe, se não ele é criado
             if not os.path.isfile("dfs_texts.json"):

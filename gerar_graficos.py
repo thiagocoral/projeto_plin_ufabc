@@ -78,7 +78,7 @@ for arquivo in jsons:
         df = df.head(50)
 
         titulo = df_a_ser_testado+" - "+arquivo.split(".")[0]
-        print("Titulo:",titulo)
+        #print("Titulo:",titulo)
         x_pos = np.arange(len(freq))
         f=plt.figure()
         f.set_figwidth(20)
@@ -94,3 +94,4 @@ for arquivo in jsons:
         plt.xticks(rotation=90)
         plt.title(titulo)
         plt.savefig("C:/Users/thico/Machine Learning/PLIN/projeto_plin_ufabc/registros_feature_importances/barplots/"+titulo+(".png"))
+        print(titulo,"types:",len(word_list),"tokens:",sum(freq),"dLexical:",len(word_list)/sum(freq))
